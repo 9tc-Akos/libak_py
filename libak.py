@@ -22,7 +22,7 @@ def beolvasas():
             l.append(int(sor.strip()))
         return 1
 
-def kiir(l,r_kg):
+def kiir(l,r_kg,r):
     print(f"A libák súlyai: {l}")
     print(f"{r_kg}kiló libát ehet meg a róka")
     
@@ -33,6 +33,13 @@ def osszegzes(l):
             osszeg+=elem
         return 
                 
+def megszamolas(l):
+    db=0
+    i=0
+    for suly in l:
+        if suly<=3:
+            db+=1
+        return db                
 
 #Főprogram
 #Input
@@ -41,5 +48,8 @@ libak=beolvasas()
 #Számolás
 #a.Hány kiló libát ehet meg a róka?
 r_megehet_ossz_kg=osszegzes(libak)
+# b. Átlagosan hány kilósak a rókának maradt libák?
+r_megehet_db=megszamolas(libak)
+r_atlag=r_megehet_ossz_kg/r_megehet_db
 #Output
-kiir(libak,r_megehet_ossz_kg)
+kiir(libak,r_megehet_ossz_kg,r_atlag)
